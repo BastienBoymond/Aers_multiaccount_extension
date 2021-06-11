@@ -1,6 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Epixtension",
+    "description": "Extension for Aer Epitech to login with two account",
     "version": "0.1",
     "content_scripts": [
         {
@@ -9,5 +10,10 @@
             ],
             "js": ["content.js"]
         }
-    ]
+    ],
+    "browser_action": {
+        "default_icon": "Epitech.png",
+        "default_popup": "popup.html",
+        "default_title": "Epitech Logins"
+    }
 }
