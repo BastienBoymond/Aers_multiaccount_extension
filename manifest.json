@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "Epixtension",
+    "version": "0.1",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://intra.epitech.eu/*"
+            ],
+            "js": ["content.js"]
+        }
+    ]
+}
