@@ -19,3 +19,20 @@ document.getElementById("Aers button").addEventListener("click", myAers);
             window.open(localStorage["Aers"]);
         }
     }
+
+document.getElementById("Delete Aers").addEventListener("click", Delete_aers);
+    function Delete_aers() {
+        if (localStorage["Aers"] != null)
+            localStorage.removeItem("Aers");
+        else
+            alert("You don't have Aers autolog");
+    }
+
+
+document.getElementById("Delete Regular").addEventListener("click", Delete_Regular);
+    function Delete_Regular() {
+        if (localStorage["Regular"] != null)
+            localStorage.removeItem("Regular");
+        else
+            alert("You don't have Regular autolog");
+    }
