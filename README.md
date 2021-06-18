@@ -1,10 +1,10 @@
-# Epixtension
+# Aers_multiaccount_extension
 
 That was a Extension for the people with two Epitech account like Aers 
 
 ### Clone repository
 
-    git clone https://github.com/BastienBoymond/Epixtension.git
+    git clone https://github.com/BastienBoymond/Aers_multiaccount_extension.git
     
 ### Load the unpack Extension
 
