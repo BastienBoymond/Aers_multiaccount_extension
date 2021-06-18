@@ -1,7 +1,7 @@
 document.getElementById("Regular button").addEventListener("click", myRegular);
     function myRegular() {
         if (localStorage["Regular"] == null) {
-            var autolog = prompt("Enter your Aers autolog", "https://intra.epitech.eu")
+            var autolog = prompt("Enter your Regular autolog", "https://intra.epitech.eu")
             if (autolog != null)
                 localStorage["Regular"] = autolog;
         } else {
