@@ -1,7 +1,7 @@
 
 function add_button_in_header()
 {
-    header = document.getElementsByClassName("header-wrapper")[1]
+    header = document.getElementsByClassName("menu")[0]
     header.innerHTML += `
     <select name="Acount" id="Select">
         <option value=null>Choose a account</option>
