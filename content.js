@@ -2,12 +2,28 @@
 function add_button_in_header()
 {
     header = document.getElementsByClassName("menu")[0]
-    header.innerHTML += `
-    <select name="Acount" id="Select">
-        <option value=null>Choose a account</option>
-        <option value="Regular">Regular</option>
-        <option value="Aers">Aers</option>
-    </select>`
+    if (localStorage["account"] == null) {
+        header.innerHTML += `
+        <select name="Acount" id="Select">
+            <option value=null selected disabled>Choose a account</option>
+            <option value="Regular">Regular</option>
+            <option value="Aers">Aers</option>
+        </select>`
+    } else if (localStorage["account"] == "Regular") {
+        header.innerHTML += `
+        <select name="Acount" id="Select">
+            <option value=null>Choose a account</option>
+            <option value="Regular" selected disabled>Regular</option>
+            <option value="Aers">Aers</option>
+        </select>`
+    } else if (localStorage["account"] == "Aers") {
+        header.innerHTML += `
+        <select name="Acount" id="Select">
+            <option value=null>Choose a account</option>
+            <option value="Regular">Regular</option>
+            <option value="Aers" selected disabled>Aers</option>
+        </select>`
+    }
 }
 
 function create_url(value)
@@ -15,6 +31,7 @@ function create_url(value)
     let link = window.location.toString();
     const tab = link.split("/");
     let url = localStorage[`${value}`];
+    localStorage["account"] = `${value}`
     for (let i = 3; tab[i] != null; i++) {
         if (tab[i][0] != 'a' && tab[i][1] != 'u' && tab[i][2] != 't' && tab[i][3] != 'h') {
             url += "/"
@@ -25,7 +42,6 @@ function create_url(value)
     return (url);
     
 }
-
 
 add_button_in_header();
 
