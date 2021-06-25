@@ -43,6 +43,24 @@ function create_url(value)
     
 }
 
+function create_url_without_autolog()
+{
+    let link = window.location.toString();
+    const tab = link.split("/");
+    let url = "https://intra.epitech.eu";
+
+    if (tab[3][0] != 'a' && tab[3][1] != 'u' && tab[3][2] != 't' && tab[3][3] != 'h')
+        return;
+    for (let i = 2; tab[i] != null; i++) {
+        if (tab[i][0] != 'a' && tab[i][1] != 'u' && tab[i][2] != 't' && tab[i][3] != 'h') {
+            url += "/"
+            url += tab[i]
+        }
+    }   
+    window.location.href = url;
+}
+
+create_url_without_autolog();
 add_button_in_header();
 
 document.getElementById("Select").onchange = function change_account() {
