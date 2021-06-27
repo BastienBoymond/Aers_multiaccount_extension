@@ -26,6 +26,10 @@ function add_button_in_header()
     }
 }
 
+function strncmp(a, b, n){
+    return a.substring(0, n) == b.substring(0, n);
+}
+
 function create_url(value)
 {
     let link = window.location.toString();
@@ -37,8 +41,7 @@ function create_url(value)
             url += "/"
             url += tab[i]
         }
-    }   
-    console.log(url)
+    }
     return (url);
     
 }
@@ -51,12 +54,12 @@ function create_url_without_autolog()
 
     if (tab[3][0] != 'a' && tab[3][1] != 'u' && tab[3][2] != 't' && tab[3][3] != 'h')
         return;
-    for (let i = 2; tab[i] != null; i++) {
-        if (tab[i][0] != 'a' && tab[i][1] != 'u' && tab[i][2] != 't' && tab[i][3] != 'h') {
+    for (let i = 3; tab[i] != null; i++) {
+        if (!strncmp(tab[i], "auth-", 5)) {
             url += "/"
             url += tab[i]
         }
-    }   
+    }
     window.location.href = url;
 }
 
