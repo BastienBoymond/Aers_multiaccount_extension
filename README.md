@@ -10,6 +10,12 @@ That was a Extension for the people with two Epitech account like Aers
 
 #### Google Chrome
 
+You can download this extensions at this links:
+
+    https://chrome.google.com/webstore/detail/epixtension/knoklnllhlgebeiglbijpfiokncpbfcd?hl=fr&authuser=0
+
+Or
+
 - Paste "chrome://extensions/" in your url.
 
 - Activate Developer Mode
