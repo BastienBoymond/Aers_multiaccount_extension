@@ -2,7 +2,7 @@
 function add_button_in_header()
 {
     header = document.getElementsByClassName("menu")[0]
-    if (localStorage["account"] == null) {
+    if (localStorage["account"] == null && header != null) {
         header.innerHTML += `
         <select name="Acount" id="Select">
             <option value=null selected disabled>Choose a account</option>
