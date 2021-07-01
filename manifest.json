@@ -1,11 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Epixtension",
+    "name": "Aers_multiaccount_extension",
     "description": "Extension for Aer Epitech to login with two account",
-    "version": "0.5",
-    "permissions": [
-        "storage"
-    ],
+    "version": "1.2",
     "content_scripts": [
         {
             "matches": [

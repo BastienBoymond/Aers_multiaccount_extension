@@ -26,10 +26,6 @@ function add_button_in_header()
     }
 }
 
-function strncmp(a, b, n){
-    return a.substring(0, n) == b.substring(0, n);
-}
-
 function create_url(value)
 {
     let link = window.location.toString();
@@ -37,7 +33,8 @@ function create_url(value)
     let url = localStorage[`${value}`];
     localStorage["account"] = `${value}`
     for (let i = 3; tab[i] != null; i++) {
-        if (tab[i][0] != 'a' && tab[i][1] != 'u' && tab[i][2] != 't' && tab[i][3] != 'h') {
+        let key = tab[i].substr(0, 4);
+        if (key != "auth") {
             url += "/"
             url += tab[i]
         }
@@ -51,11 +48,12 @@ function create_url_without_autolog()
     let link = window.location.toString();
     const tab = link.split("/");
     let url = "https://intra.epitech.eu";
-
-    if (tab[3][0] != 'a' && tab[3][1] != 'u' && tab[3][2] != 't' && tab[3][3] != 'h')
+    let key = tab[3].substring(0, 4);
+    if (key != "auth")
         return;
     for (let i = 3; tab[i] != null; i++) {
-        if (!strncmp(tab[i], "auth-", 5)) {
+        key = tab[i].substring(0, 4);
+        if (key != "auth") {
             url += "/"
             url += tab[i]
         }
