@@ -5,23 +5,23 @@ function add_button_in_header()
     if (localStorage["account"] == null && header != null) {
         header.innerHTML += `
         <select name="Acount" id="Select">
-            <option value=null selected disabled>Choose a account</option>
-            <option value="Regular">Regular</option>
-            <option value="Aers">Aers</option>
+            <option value=null selected disabled>Choose an account</option>
+            <option value="Regular">Student</option>
+            <option value="Aers">AER</option>
         </select>`
     } else if (localStorage["account"] == "Regular") {
         header.innerHTML += `
         <select name="Acount" id="Select">
-            <option value=null>Choose a account</option>
-            <option value="Regular" selected disabled>Regular</option>
-            <option value="Aers">Aers</option>
+            <option value=null>Choose an account</option>
+            <option value="Regular" selected disabled>Student</option>
+            <option value="Aers">AER</option>
         </select>`
     } else if (localStorage["account"] == "Aers") {
         header.innerHTML += `
         <select name="Acount" id="Select">
-            <option value=null>Choose a account</option>
-            <option value="Regular">Regular</option>
-            <option value="Aers" selected disabled>Aers</option>
+            <option value=null>Choose an account</option>
+            <option value="Regular">Student</option>
+            <option value="Aers" selected disabled>AER</option>
         </select>`
     }
 }
