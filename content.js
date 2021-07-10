@@ -1,37 +1,68 @@
 
-function add_button_in_header()
+async function add_button_in_header()
 {
     header = document.getElementsByClassName("menu")[0]
-    if (localStorage["account"] == null && header != null) {
+    const account = (await get_stored_value("account")) || "null"
+    if (account == "null" && header != "null") {
         header.innerHTML += `
         <select name="Acount" id="Select">
             <option value=null selected disabled>Choose an account</option>
             <option value="Regular">Student</option>
             <option value="Aers">AER</option>
         </select>`
-    } else if (localStorage["account"] == "Regular") {
+    } else if (account == "Regular") {
         header.innerHTML += `
         <select name="Acount" id="Select">
             <option value=null>Choose an account</option>
             <option value="Regular" selected disabled>Student</option>
             <option value="Aers">AER</option>
         </select>`
-    } else if (localStorage["account"] == "Aers") {
+    } else if (account == "Aers") {
         header.innerHTML += `
         <select name="Acount" id="Select">
-            <option value=null>Choose an account</option>
-            <option value="Regular">Student</option>
-            <option value="Aers" selected disabled>AER</option>
+        <option value=null>Choose an account</option>
+        <option value="Regular">Student</option>
+        <option value="Aers" selected disabled>AER</option>
         </select>`
+    }
+    document.getElementById("Select").onchange = async function change_account() {
+        let value = this.value;
+        let login = await get_stored_value(value);
+        if (value == "null")
+            return;
+        if (login == null) {
+            var autolog = prompt(`Enter your ${value} autolog`, "https://intra.epitech.eu")
+            if (autolog != null)
+                store_value(value, autolog)
+        } else {
+            let url = await create_url(value);
+            window.location.href = url;
+        }
+        return;
     }
 }
 
-function create_url(value)
+function get_stored_value(key) {
+    return new Promise((resolve) => {
+        chrome.storage.sync.get(key, function(autolog) {
+            resolve(autolog[key]);
+        });
+    });
+}
+
+function store_value(value, autolog)
+{
+    chrome.storage.sync.set({
+        [value]: autolog,
+    })
+}
+
+async function create_url(value)
 {
     let link = window.location.toString();
     const tab = link.split("/");
-    let url = localStorage[`${value}`];
-    localStorage["account"] = `${value}`
+    let url = await get_stored_value(value);
+    store_value("account", value)
     for (let i = 3; tab[i] != null; i++) {
         let key = tab[i].substr(0, 4);
         if (key != "auth") {
@@ -40,7 +71,6 @@ function create_url(value)
         }
     }
     return (url);
-    
 }
 
 function create_url_without_autolog()
@@ -63,18 +93,3 @@ function create_url_without_autolog()
 
 create_url_without_autolog();
 add_button_in_header();
-
-document.getElementById("Select").onchange = function change_account() {
-    let value = this.value;
-    if (value == "null")
-        return;
-    if (localStorage[`${value}`] == null) {
-        var autolog = prompt(`Enter your ${value} autolog`, "https://intra.epitech.eu")
-        if (autolog != null)
-            localStorage[`${value}`] = autolog;
-    } else {
-        let url = create_url(value);
-        window.location.href = url;
-    }
-    return;
-}
