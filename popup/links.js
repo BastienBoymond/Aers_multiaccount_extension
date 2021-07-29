@@ -1,38 +1,64 @@
+function get_stored_value(key) {
+    return new Promise((resolve) => {
+        chrome.storage.sync.get(key, function(autolog) {
+            resolve(autolog[key]);
+        });
+    });
+}
+
+function store_value(value, autolog)
+{
+    chrome.storage.sync.set({
+        [value]: autolog,
+    })
+}
+
+function delete_value(value)
+{
+    chrome.storage.sync.remove(value);
+}
+
 document.getElementById("Regular button").addEventListener("click", myRegular);
-    function myRegular() {
-        if (localStorage["Regular"] == null) {
-            var autolog = prompt("Enter your Regular autolog", "https://intra.epitech.eu")
+    async function myRegular() {
+        if (await get_stored_value("Regular") == null) {
+            var autolog = prompt("Enter your Student autolog", "https://intra.epitech.eu")
             if (autolog != null)
-                localStorage["Regular"] = autolog;
+                store_value("Regular", autolog);
         } else {
-            window.open(localStorage["Regular"]);
+            store_value("account", "Regular");
+            window.open(await get_stored_value("Regular"));
         }
     }
 
 document.getElementById("Aers button").addEventListener("click", myAers);
-    function myAers() {
-        if (localStorage["Aers"] == null) {
-            var autolog = prompt("Enter your Aers autolog", "https://intra.epitech.eu")
+    async function myAers() {
+        if (await get_stored_value("Aers") == null) {
+            var autolog = prompt("Enter your Aer autolog", "https://intra.epitech.eu")
             if (autolog != null)
-                localStorage["Aers"] = autolog;
-        }else {
-            window.open(localStorage["Aers"]);
+                store_value("Aers", autolog);
+        } else {
+            store_value("account", "Aers");
+            window.open(await get_stored_value("Aers"));
         }
     }
 
 document.getElementById("Delete Aers").addEventListener("click", Delete_aers);
-    function Delete_aers() {
-        if (localStorage["Aers"] != null)
-            localStorage.removeItem("Aers");
-        else
+    async function Delete_aers() {
+        if (await get_stored_value("Aers") != null) {
+            store_value("account", "null");
+            delete_value("Aers");
+        } else {
             alert("You don't have Aers autolog");
+        }
     }
 
 
 document.getElementById("Delete Regular").addEventListener("click", Delete_Regular);
-    function Delete_Regular() {
-        if (localStorage["Regular"] != null)
-            localStorage.removeItem("Regular");
-        else
+    async function Delete_Regular() {
+        if (await get_stored_value("Regular") != null) {
+            store_value("account", "null");
+            delete_value("Regular");
+        } else {
             alert("You don't have Regular autolog");
+        }
     }
