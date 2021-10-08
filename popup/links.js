@@ -62,3 +62,8 @@ document.getElementById("Delete Regular").addEventListener("click", Delete_Regul
             alert("You don't have Regular autolog");
         }
     }
+
+document.getElementById("github").addEventListener("click", github);
+    async function github() {
+        window.open("https://github.com/BastienBoymond/Aers_multiaccount_extension");
+    }

@@ -2,36 +2,27 @@
 <html>
     <head>
         <title>Epixtension</title>
-        <style>
-            #popup {
-                width: 300px;
-                height: 300px;
-                text-align: center;
-                padding-top: 100px;
-            }
-            .button {
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                cursor: pointer;
-            }
-
-            .button_log_1 {background-color: blue;}
-            .button_log_2 {background-color: red;}
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <div id="popup">
-            <button class="button button_log_1" id="Regular button">Student account</button>
-            <button class="button button_log_1", id="Aers button">AER account</button>
-            <button class="button button_log_2", id="Delete Regular">Delete Student account</button>
-            <button class="button button_log_2", id="Delete Aers">Delete AER account</button>
-            <script src="links.js"></script>
+        <h2>Aers Multiaccount</h2>
+        <div id="button">
+            <h3>Access to Intranet</h3>
+            <div id="center-button">
+            <button class="button" id="Regular button">Student account</button>
+            <button class="button", id="Aers button">AER account</button>
+            </div>
+            <h3>Delete a autolog</h3>
+            <div id="center-button">
+            <button class="button", id="Delete Regular">Student account</button>
+            <button class="button", id="Delete Aers">AER account</button>
+            </div>
         </div>
     </body>
+    <footer>
+        <button class="grey github-buttons" id="github"><i class="fab fa-github"></i></button>
+        <p>Aers Multiaccount</p>
+    </footer>
+    <script src="links.js"></script>
 </html>
