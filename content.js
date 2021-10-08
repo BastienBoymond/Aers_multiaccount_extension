@@ -1,8 +1,46 @@
 
+async function requestGet(url){
+    let data;
+    try {
+        const res = await fetch(url, {
+            method: 'GET',
+            credentials: 'include',
+        });
+        return (res.json());
+    } catch (e) {
+        return (res.json());
+    }
+};
+
+async function knowAccount(account) {
+    if (account == "null") {
+        return (account);
+    } else if (account == "Regular") {
+        url = await get_stored_value(account);
+        data = await requestGet(`https://intra.epitech.eu/admin/autolog?format=json`);
+        if (data.autologin === url) {
+            return (account)
+        } else {
+            return ('Aers')
+        }
+    } else if (account == "Aers") {
+        url = await get_stored_value(account);
+        data = await requestGet(`https://intra.epitech.eu/admin/autolog?format=json`);
+        if (data.autologin === url) {
+            return (account)
+        } else {
+            return ('Regular')
+        }
+    }
+    return (account);
+}
+
 async function add_button_in_header()
 {
     header = document.getElementsByClassName("menu")[0]
-    const account = (await get_stored_value("account")) || "null"
+    let account = (await get_stored_value("account")) || "null";
+    account = await knowAccount(account);
+    console.log(account);
     if (account == "null" && header != "null") {
         header.innerHTML += `
         <select name="Acount" id="Select">
