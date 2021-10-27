@@ -1,23 +1,21 @@
-# Aers_multiaccount_extension
+<div align="center">
+    <h1>Aer Multiaccount Extension</h1>
 
-That was a Extension for the people with two Epitech account like Aers 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/knoklnllhlgebeiglbijpfiokncpbfcd?label=Stars&color=brightgreen&logo=googlechrome&style=for-the-badge)](https://chrome.google.com/webstore/detail/aersmultiaccountextension/knoklnllhlgebeiglbijpfiokncpbfcd?hl=fr&authuser=0)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/knoklnllhlgebeiglbijpfiokncpbfcd?color=brightgreen&logo=googlechrome&style=for-the-badge)](https://chrome.google.com/webstore/detail/aersmultiaccountextension/knoklnllhlgebeiglbijpfiokncpbfcd?hl=fr&authuser=0)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/knoklnllhlgebeiglbijpfiokncpbfcd?color=brightgreen&logo=googlechrome&style=for-the-badge)](https://chrome.google.com/webstore/detail/aersmultiaccountextension/knoklnllhlgebeiglbijpfiokncpbfcd?hl=fr&authuser=0)
+<br>
+</div>
 
-### Clone repository
+## :notebook: Description :notebook:
 
-    git clone https://github.com/BastienBoymond/Aers_multiaccount_extension.git
-    
-### Load the unpack Extension
+The goal of this extension is to allow Aer users to switch easily between their accounts.
 
-#### Google Chrome
+## :cd:	Download :cd:
 
-You can download this extensions at this links:
 
-    https://chrome.google.com/webstore/detail/epixtension/knoklnllhlgebeiglbijpfiokncpbfcd?hl=fr&authuser=0
+To download this extension I invite you to go to this <a href="https://chrome.google.com/webstore/detail/aersmultiaccountextension/knoklnllhlgebeiglbijpfiokncpbfcd?hl=fr&authuser=0">link</a>
 
-Or
+## :camera_flash: Image :camera_flash:
 
-- Paste "chrome://extensions/" in your url.
-
-- Activate Developer Mode
-
-- Load the folder Epixtension with "Load unpacked".
+<a href="https://i.imgur.com/qcQiyxw.png"><img src="https://i.imgur.com/qcQiyxw.png" title="Extension image" /></a>
